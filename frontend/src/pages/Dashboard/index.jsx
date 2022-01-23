@@ -49,18 +49,6 @@ const Dashboard = () => {
         <p>Veja o desempenho da empresa.</p>
       </div>
 
-      <div className="flex-col w-full">
-        <h3 className="mb-1 mt-4 gradient-text">Filtros</h3>
-        <div className="grid-col-4 gap-2">
-          <Dropdown
-            name="tipo"
-            items={itemPlusTodos(tiposEmpresa)}
-            label="Tipo de Empresa"
-            placeholder="Tipo de Empresa"
-            inputEvent={(data) => setFilter('tipo', data)}
-          />
-        </div>
-      </div>
       <div className="dashboard-card-group w-full">
         <div className="dashboard-analise-card">
           <div className="dashboard-icon">

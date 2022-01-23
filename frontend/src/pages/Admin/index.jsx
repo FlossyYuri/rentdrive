@@ -73,7 +73,6 @@ const Admin = () => {
         </div>
       </aside>
       <header className="navbar-admin">
-
         <div className="profile">
           <div className="flex-col mr-2">
             <span className="font-bold">{usuario.nome}</span>

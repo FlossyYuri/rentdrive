@@ -99,6 +99,7 @@ aside {
   display: flex;
   justify-content: flex-end;
   border: 1px solid #eff4f6;
+  z-index: 10;
 }
 .navbar-new a {
   background-color: #f70403;

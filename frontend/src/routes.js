@@ -1,16 +1,16 @@
 import React, { useEffect } from "react";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
-// import { useAuth } from "./context";
+import { useAuth } from "./context";
 import Admin from "./pages/Admin";
 import Entrar from "./pages/Login";
 import Esquecer from "./pages/Login/EsquecerSenha/";
 import Recuperar from "./pages/Login/recuperar";
 function Routes() {
-  // const { auth, initialize } = useAuth(useAuth);
+  const { auth, initialize } = useAuth(useAuth);
   useEffect(() => {
-    // initialize();
+    initialize();
   }, []);
-  if (true)
+  if (auth)
     return (
       <BrowserRouter>
         <Admin />

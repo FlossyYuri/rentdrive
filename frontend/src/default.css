@@ -1,6 +1,6 @@
 :root {
   --light-gray: #909090;
-  --dark-gray: #4a5568;
+  --dark-gray: hsl(218, 17%, 35%);
   --main-blue: #f70403;
   --main-orange: #f77777;
   --success: #43d422;

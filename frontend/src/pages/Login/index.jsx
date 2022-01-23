@@ -2,7 +2,7 @@ import { useFormik } from "formik";
 import React from "react";
 import { Link } from "react-router-dom";
 import * as Yup from 'yup';
-import LogoIcon from "../../assets/svgs/logo";
+import LogoIcon from "../../assets/svgs/rent2.svg";
 import Logomarca from "../../assets/svgs/logomarca.svg";
 import Checkbox from "../../components/input/Checkbox";
 import TextInput from "../../components/input/TextInput";
@@ -14,11 +14,11 @@ const Login = () => {
   const { setToken, toast } = useAuth(useAuth);
   const formik = useFormik({
     initialValues: {
-      email: '',
+      nome: '',
       senha: ''
     },
     validationSchema: Yup.object({
-      email: Yup.string().email('Invalid email address').required('Required'),
+      nome: Yup.string().required('Required'),
       senha: Yup.string().required('Required'),
     }),
     onSubmit: values => {
@@ -39,16 +39,16 @@ const Login = () => {
       <main className="main-login">
         <div className="form-login">
           <div className="logo-login">
-            <LogoIcon />
+            <img src={LogoIcon} alt="Logo" />
           </div>
           <form onSubmit={formik.handleSubmit}>
             <h3 className="gradient-text">Faça login em sua conta</h3>
             <p>Bem vindo, faça login para acessar o seu painel.</p>
             <div className="login-card">
-              <TextInput name="email" label="Email" type="email" placeholder="Digite o seu email"
+              <TextInput name="nome" label="Nome de Usuário" type="text" placeholder="nome"
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                value={formik.values.email} />
+                value={formik.values.nome} />
               <TextInput
                 name="senha"
                 label="Senha"
