@@ -1,0 +1,131 @@
+.forms-container input.unFormTextInput,
+.forms-container .DayPickerInput input,
+.input.date-custom-input {
+  background: #ffffff;
+  border: 1px solid #e1e1e1;
+  box-sizing: border-box;
+  border-radius: 3px;
+  font-size: 14px;
+  line-height: 24px;
+  color: #150433;
+  padding: 8px 16px;
+  width: 100%;
+}
+.form-note {
+  color: var(--error-color);
+}
+.input.date-custom-input {
+  margin-bottom: 0;
+}
+.input-label {
+  color: #959393;
+}
+.forms-container input.unFormTextInput::placeholder,
+.forms-container .DayPickerInput input:-ms-input-placeholder,
+.input.date-custom-input::placeholder {
+  color: #959393;
+  opacity: 1; /* Firefox */
+}
+.react-datepicker__header:not(.react-datepicker__header--has-time-select) {
+  padding: 6px 0;
+}
+
+.forms-container input.unFormTextInput:-ms-input-placeholder,
+.forms-container .DayPickerInput input:-ms-input-placeholder,
+.input.date-custom-input::-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #959393;
+}
+
+.forms-container input.unFormTextInput::-ms-input-placeholder,
+.forms-container .DayPickerInput input:-ms-input-placeholder,
+.input.date-custom-input:-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #959393;
+}
+.w-100,
+.react-datepicker-wrapper,
+.forms-container .DayPickerInput input:-ms-input-placeholder,
+input.unFormTextInput {
+  width: 100%;
+}
+
+.forms-container .form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px 30px;
+  margin-top: 24px;
+  margin-bottom: 32px;
+}
+
+.forms-container .form-grid input {
+  flex: 1;
+}
+.input-box.hidden {
+  display: none;
+}
+span.error {
+  margin-left: 2px;
+  color: var(--error-color);
+}
+
+.forms-container .image-input {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+  overflow: hidden;
+  background: linear-gradient(
+    230.41deg,
+    #3700a1 -37.55%,
+    rgba(245, 138, 144, 0.9) 113.09%
+  );
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin-top: -240px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.forms-container .image-input .input-background {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px;
+}
+
+.forms-container .image-input .placeholder {
+  width: 100%;
+  font-size: 14px;
+  padding: 12px 16px 20px 16px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  color: #3700a1;
+  bottom: 0;
+}
+
+.placeholderButton {
+  left: 0;
+}
+
+.forms-container .image-input input {
+  display: none;
+}
+.forms-container .image-input img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media only screen and (max-width: 992px) {
+  .forms-container .form-grid {
+    grid-template-columns: 1fr;
+  }
+  .forms-container .form-grid input {
+    margin-bottom: 0px;
+  }
+}

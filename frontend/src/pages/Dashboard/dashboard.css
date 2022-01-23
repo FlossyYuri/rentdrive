@@ -1,0 +1,86 @@
+.dashboard-card-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 24px;
+  margin-top: 24px;
+}
+.dashboard-analise-card {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: 24px 24px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  border-radius: 16px;
+}
+.dashboard-icon {
+  background-color: #f70403;
+  padding: 24px 24px 24px 24px;
+  border-radius: 10px;
+  color: white;
+  margin-right: 16px;
+}
+
+.dashboard-detail h2 {
+  color: #f70403;
+  padding-bottom: 8px;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.dashboard-analise-card .dashboard-detail p {
+  font-size: 0.9rem;
+}
+.dashboard-top h2 {
+  color: #373b53;
+  font-weight: bold;
+  font-size: 28px;
+  padding-bottom: 8px;
+}
+.dashboard-top p {
+  color: #a6acbe;
+}
+.dashboard-filtro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  background: #fff;
+  padding: 16px;
+  margin-top: 24px;
+  font-size: 16px;
+}
+.dashboard-filtro button {
+  color: white;
+  padding: 8px;
+  cursor: pointer;
+  border: none;
+  background-color: #f70403;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transform: 200ms;
+}
+.dashboard-filtro button:hover {
+  background-color: #f1a300;
+}
+.dashboard-filtro label {
+  font-size: 18px;
+}
+
+.double-sided {
+  display: grid;
+  gap: 2em;
+  grid-template-columns: 1fr 2fr;
+}
+
+@media (max-width: 1024px) {
+  .dashboard-card-group {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 768px) {
+  .dashboard-card-group {
+    grid-template-columns: 1fr;
+  }
+}
