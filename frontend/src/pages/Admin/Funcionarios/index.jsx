@@ -1,21 +1,24 @@
 import React, { useEffect, useState } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import CustomTable from "../../../components/CustomTable";
 import TextInput from "../../../components/input/TextInput";
 import Pagination from "../../../components/Pagination";
 import { headersFuncionario } from "../../../constants/dictionary";
 import { useAuth } from "../../../context";
 import { APIKit } from "../../../services/api";
-import CriarUsuario from "./CriarUsuario";
-import "./estudante.css";
 import CriarFuncionario from "./Criar";
+import CriarUsuario from "./CriarUsuario";
+import EditarFuncionario from "./edit";
+import "./estudante.css";
+import VisualizarFuncionario from "./Visualizar";
 const Funcionarios = () => {
   const { toast } = useAuth(useAuth)
   const [modalUser, setModalUser] = useState({ visible: false, funcionario: null });
+  const [modalDetalhes, setModalDetalhes] = useState({ visible: false, funcionario: null });
+  const [modalEditar, setModalEditar] = useState({ visible: false, item: null });
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [funcionarios, setUsuarios] = useState([])
   const query = useParams();
-  const history = useHistory();
   const [filters, setFilters] = useState({
     page: 0,
   })
@@ -43,13 +46,19 @@ const Funcionarios = () => {
     {
       text: "Ver Detalhes",
       onClick: () => {
-        history.push(`/funcionarios/${item.id}`);
+        setModalDetalhes({ visible: true, funcionario: item })
       },
     },
     {
       text: "Criar Conta",
       onClick: () => {
         setModalUser({ visible: true, funcionario: item })
+      },
+    },
+    {
+      text: "Editar",
+      onClick: () => {
+        setModalEditar({ visible: true, item })
       },
     },
     {
@@ -113,9 +122,13 @@ const Funcionarios = () => {
         </CriarFuncionario>
       ) : null}
       {modalUser.visible ? (
-        <CriarUsuario funcionario={modalUser.funcionario} fetchData={fetchData} onClose={() => setModalUser({ visible: false, funcionario: null })}>
-          <h4>Criar</h4>
-        </CriarUsuario>
+        <CriarUsuario funcionario={modalUser.funcionario} fetchData={fetchData} onClose={() => setModalUser({ visible: false, funcionario: null })} />
+      ) : null}
+      {modalDetalhes.visible ? (
+        <VisualizarFuncionario funcionario={modalDetalhes.funcionario} fetchData={fetchData} onClose={() => setModalDetalhes({ visible: false, funcionario: null })} />
+      ) : null}
+      {modalEditar.visible ? (
+        <EditarFuncionario item={modalEditar.item} fetchData={fetchData} onClose={() => setModalEditar({ visible: false, item: null })} />
       ) : null}
     </div>
   );

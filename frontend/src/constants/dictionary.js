@@ -136,8 +136,16 @@ export const headersFuncionario = [
     label: "BI",
   },
   {
+    key: "dataNascimento",
+    label: "D. Nascimento",
+  },
+  {
     key: "sexo",
     label: "Sexo",
+  },
+  {
+    key: "telefone",
+    label: "Telefone",
   },
   {
     key: "funcao",
@@ -157,6 +165,14 @@ export const headersClientes = [
   {
     key: "email",
     label: "Email",
+  },
+  {
+    key: "telefone",
+    label: "Telefone",
+  },
+  {
+    key: "endereco",
+    label: "Endereço",
   },
   {
     key: "tipo",
@@ -224,6 +240,14 @@ export const headersViaturas = [
     label: "Ano",
   },
   {
+    key: "matricula",
+    label: "Matricula",
+  },
+  {
+    key: "cambio",
+    label: "Cambio",
+  },
+  {
     key: "precoDia",
     label: "Preço Diário",
   },
@@ -236,55 +260,5 @@ export const headersViaturas = [
         <><div className="small-circle disabled" /> Não</>
       }
     </div>
-  },
-];
-
-export const headersEmpresa = [
-  {
-    key: "nome",
-    label: "Nome",
-    component: (item) => <div className="flex items-center"><img className="table-icon" src={item.logotipo} alt={`${item.nome} Logo`} /><span>{item.nome}</span></div>
-  },
-  {
-    key: "tipo",
-    label: "Tipo",
-    component: (item) => tiposEmpresaObject[item.tipo].label
-  },
-  {
-    key: "pacote",
-    label: "Pacote",
-    component: (item) => pacotesEmpresaObject[item.pacote].label
-  },
-  {
-    key: "endereco",
-    label: "Endereço",
-  },
-  {
-    key: "expiracaoPagamento",
-    label: "Mensalidade",
-    component: (item) => {
-      if (isMonthPaid(item.expiracaoTrial, item.expiracaoPagamento))
-        return <div className="flex items-center"><div className="small-circle enabled" /> Pago</div>
-      return <div className="flex items-center"><div className="small-circle disabled" /> Pendente</div>
-    }
-  },
-  {
-    key: "aprovado",
-    label: "Avaliação",
-    component: (item) => <div className="flex items-center">
-      {item.aprovado ?
-        <><div className="small-circle enabled" /> {estadosEmpresaObject[item.aprovado ? 1 : 0].label}</> :
-        <><div className="small-circle disabled" /> {estadosEmpresaObject[item.aprovado ? 1 : 0].label}</>
-      }
-    </div>
-  },
-  {
-    key: "usuario.nome",
-    label: "Nome do vendedor",
-  },
-  {
-    key: "createdAt",
-    label: "Data de criação",
-    component: ({ createdAt }) => <span>{new Intl.DateTimeFormat('en-GB', { dateStyle: 'short', timeStyle: 'short' }).format(new Date(createdAt))}</span>
   },
 ];

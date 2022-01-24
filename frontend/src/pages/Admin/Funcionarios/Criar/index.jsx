@@ -37,7 +37,6 @@ const CriarFuncionario = ({ onClose = () => { }, fetchData }) => {
       nib: Yup.string().required('Required'),
     }),
     onSubmit: (values, { resetForm }) => {
-      values.ativo = true
       toast.promise(APIKit.post('/funcionarios', values), {
         loading: 'Enviando!',
         success: 'Funcionário criado com sucesso!',

@@ -28,8 +28,8 @@ const CriarVendedor = ({ onClose = () => { }, fetchData }) => {
       marca: Yup.string().required('Required'),
       modelo: Yup.string().required('Required'),
       ano: Yup.number().required('Required'),
-      precoDia: Yup.number().required('Required'),
       cambio: Yup.string().required('Required'),
+      precoDia: Yup.number().required('Required'),
       disponivel: Yup.string().required('Required'),
     }),
     onSubmit: (values, { resetForm }) => {

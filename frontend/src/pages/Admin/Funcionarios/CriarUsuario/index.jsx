@@ -22,7 +22,6 @@ const CriarUsuario = ({ onClose = () => { }, fetchData, funcionario }) => {
       senha: Yup.string().required('Required'),
     }),
     onSubmit: (values, { resetForm }) => {
-      values.ativo = true
       toast.promise(APIKit.post('/usuarios', values), {
         loading: 'Enviando!',
         success: 'Usuário criado com sucesso!',

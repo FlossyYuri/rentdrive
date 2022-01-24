@@ -26,7 +26,7 @@ const WeekDay = ({ weekday, time }) => {
     <div className="flex items-center">
       <div className="circle" />
       <span className="ml-2 extended-w-2">{getWeekDay()}</span>
-      <strong>{`${timeSanitizer(time.startHour)}:${timeSanitizer(time.startMinute)}`} - {`${timeSanitizer(time.endHour)}:${timeSanitizer(time.endMinute)}`}</strong>
+      <strong>-</strong>
     </div>
   );
 };

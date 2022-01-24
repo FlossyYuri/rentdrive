@@ -5,7 +5,7 @@ import "../style/checkAndRadio.css";
 const Checkbox = ({ label, name, value, ...rest }) => {
   return (
     <label className="checkbox">
-      <input name={name} type="checkbox" value={value} {...rest}></input>
+      <input name={name} type="checkbox" checked={value} {...rest}></input>
       <div className="input">
         <CheckIcon />
       </div>

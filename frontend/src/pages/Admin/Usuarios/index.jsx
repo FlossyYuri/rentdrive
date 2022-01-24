@@ -6,12 +6,13 @@ import Pagination from "../../../components/Pagination";
 import { headersUsuario } from "../../../constants/dictionary";
 import { useAuth } from "../../../context";
 import { APIKit } from "../../../services/api";
+import EditarUsuario from "./edit";
 import "./estudante.css";
 const Usuarios = () => {
   const { toast } = useAuth(useAuth)
   const [usuarios, setUsuarios] = useState([])
+  const [modalEditar, setModalEditar] = useState({ visible: false, item: null });
   const query = useParams();
-  const history = useHistory();
   const [filters, setFilters] = useState({
     page: 0,
   })
@@ -37,9 +38,9 @@ const Usuarios = () => {
 
   const menuItems = (item) => [
     {
-      text: "Ver Detalhes",
+      text: "Editar",
       onClick: () => {
-        history.push(`/usuarios/${item.id}`);
+        setModalEditar({ visible: true, item })
       },
     },
     {
@@ -86,6 +87,9 @@ const Usuarios = () => {
         />
         : null}
 
+      {modalEditar.visible ? (
+        <EditarUsuario item={modalEditar.item} fetchData={fetchData} onClose={() => setModalEditar({ visible: false, item: null })} />
+      ) : null}
     </div>
   );
 };

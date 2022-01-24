@@ -30,7 +30,6 @@ const CriarVendedor = ({ onClose = () => { }, fetchData }) => {
       tipo: Yup.string().required('Required'),
     }),
     onSubmit: (values, { resetForm }) => {
-      values.ativo = true
       toast.promise(APIKit.post('/clientes', values), {
         loading: 'Enviando!',
         success: 'Cliente criado com sucesso!',

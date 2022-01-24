@@ -6,6 +6,7 @@ import Pagination from "../../../components/Pagination";
 import { headersAluguer } from "../../../constants/dictionary";
 import { useAuth } from "../../../context";
 import { APIKit } from "../../../services/api";
+import VisualizarAluguer from "./Visualizar";
 import Devolucao from "./Devolucao";
 import "./estudante.css";
 import CriarVendedor from "./Modal/index";
@@ -13,9 +14,9 @@ const Aluguer = () => {
   const { toast } = useAuth(useAuth)
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [modalDevolucao, setModalDevolucao] = useState({ visible: false, aluguer: null });
+  const [modalDetalhes, setModalDetalhes] = useState({ visible: false, aluguer: null });
   const [aluguer, setAlugueres] = useState({})
   const query = useParams();
-  const history = useHistory();
   const [filters, setFilters] = useState({
     page: 0,
   })
@@ -43,7 +44,7 @@ const Aluguer = () => {
     {
       text: "Ver Detalhes",
       onClick: () => {
-        history.push(`/alugueres/${item.id}`);
+        setModalDetalhes({ visible: true, aluguer: item })
       },
     },
     {
@@ -70,11 +71,11 @@ const Aluguer = () => {
         <h3 className="mb-1 mt-4 gradient-text">Filtros</h3>
         <div className="grid-col-4 gap-2">
           <TextInput
-            name="cliente"
-            label="Cliente"
+            name="aluguer"
+            label="aluguer"
             type="text"
-            placeholder="Cliente"
-            inputEvent={(data) => setFilter('cliente', data)}
+            placeholder="aluguer"
+            inputEvent={(data) => setFilter('aluguer', data)}
           />
           <TextInput
             name="viatura"
@@ -106,6 +107,9 @@ const Aluguer = () => {
       ) : null}
       {modalDevolucao?.visible ? (
         <Devolucao fetchData={fetchData} aluguer={modalDevolucao?.aluguer} onClose={() => setModalDevolucao({ visible: false, aluguer: null })} />
+      ) : null}
+      {modalDetalhes.visible ? (
+        <VisualizarAluguer aluguer={modalDetalhes.aluguer} onClose={() => setModalDetalhes({ visible: false, aluguer: null })} />
       ) : null}
     </div>
   );

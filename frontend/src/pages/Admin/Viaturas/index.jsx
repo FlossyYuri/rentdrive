@@ -6,14 +6,17 @@ import Pagination from "../../../components/Pagination";
 import { headersViaturas } from "../../../constants/dictionary";
 import { useAuth } from "../../../context";
 import { APIKit } from "../../../services/api";
+import EditarViatura from "./edit";
 import "./estudante.css";
 import CriarVendedor from "./Modal/index";
+import VisualizarViatura from "./Visualizar";
 const Viaturas = () => {
   const { toast } = useAuth(useAuth)
+  const [modalDetalhes, setModalDetalhes] = useState({ visible: false, viatura: null });
+  const [modalEditar, setModalEditar] = useState({ visible: false, item: null });
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [viaturas, setUsuarios] = useState([])
   const query = useParams();
-  const history = useHistory();
   const [filters, setFilters] = useState({
     page: 0,
   })
@@ -41,7 +44,13 @@ const Viaturas = () => {
     {
       text: "Ver Detalhes",
       onClick: () => {
-        history.push(`/viaturas/${item.id}`);
+        setModalDetalhes({ visible: true, viatura: item })
+      },
+    },
+    {
+      text: "Editar",
+      onClick: () => {
+        setModalEditar({ visible: true, item })
       },
     },
     {
@@ -103,6 +112,12 @@ const Viaturas = () => {
         <CriarVendedor fetchData={fetchData} onClose={() => setIsModalVisible(false)}>
           <h4>Criar</h4>
         </CriarVendedor>
+      ) : null}
+      {modalDetalhes.visible ? (
+        <VisualizarViatura viatura={modalDetalhes.viatura} onClose={() => setModalDetalhes({ visible: false, viatura: null })} />
+      ) : null}
+      {modalEditar.visible ? (
+        <EditarViatura item={modalEditar.item} fetchData={fetchData} onClose={() => setModalEditar({ visible: false, item: null })} />
       ) : null}
     </div>
   );

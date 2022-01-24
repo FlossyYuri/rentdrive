@@ -15,7 +15,7 @@ import { useAuth } from "../../context";
 import Dashboard from "../Dashboard";
 import Viaturas from "./Viaturas";
 import EditEmpresa from "../Empresa/edit";
-import VerEmpresa from "../Empresa/id";
+import VerFuncionario from "./Funcionarios/id";
 import Perfil from "../Usuario/Perfil";
 import Clientes from "./Clientes";
 import Funcionarios from "./Funcionarios";
@@ -69,7 +69,7 @@ const Admin = () => {
             to="/funcionarios"
           >
             <div className="flex"><FiUsers /> Funcionários <MdKeyboardArrowRight size={24} className="self-end" /></div>
-          </NavLink>=
+          </NavLink>
         </div>
       </aside>
       <header className="navbar-admin">
@@ -98,8 +98,8 @@ const Admin = () => {
           <Route exact path="/clientes/edit/:id">
             <EditEmpresa />
           </Route>
-          <Route path="/clientes/:id">
-            <VerEmpresa />
+          <Route path="/funcionarios/:id">
+            <VerFuncionario />
           </Route>
           <Route exact path="/clientes">
             <Clientes />
