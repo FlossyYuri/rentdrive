@@ -1,16 +1,21 @@
 import { useFormik } from "formik";
-import React from "react";
+import React, { useState } from "react";
 import { IoMdClose } from 'react-icons/io';
 import * as Yup from 'yup';
 import Checkbox from "../../../../components/input/Checkbox";
 import RadioButton from "../../../../components/input/RadioButton";
+import FileInput from "../../../../components/input/FileInput";
 import TextInput from "../../../../components/input/TextInput";
-import { tiposCambio, tiposCliente } from "../../../../constants/dictionary";
+import { tiposCambio } from "../../../../constants/dictionary";
 import { useAuth } from "../../../../context";
-import { APIKit } from "../../../../services/api";
+import { APIKit, uploadFile } from "../../../../services/api";
 import "./modal.css";
 const CriarVendedor = ({ onClose = () => { }, fetchData }) => {
   const { toast } = useAuth(useAuth)
+  const [image, setImage] = useState()
+  const changeImage = (file) => {
+    setImage(file)
+  }
   const formik = useFormik({
     initialValues: {
       matricula: '',
@@ -32,15 +37,29 @@ const CriarVendedor = ({ onClose = () => { }, fetchData }) => {
       precoDia: Yup.number().required('Required'),
       disponivel: Yup.string().required('Required'),
     }),
-    onSubmit: (values, { resetForm }) => {
-      toast.promise(APIKit.post('/viaturas', values), {
-        loading: 'Enviando!',
-        success: 'Viatura criado com sucesso!',
-        error: 'Ups, ocorreu um erro!',
-      });
-      fetchData();
-      resetForm();
-      onClose();
+    onSubmit: async (values, { resetForm }) => {
+      try {
+        if (image) {
+          const toastID = toast.loading('Carregando Imagem.');
+          const imagem = await uploadFile(image)
+          values.imagem = imagem
+          toast.dismiss(toastID)
+        }
+        toast.promise(APIKit.post('/viaturas', values), {
+          loading: 'Enviando!',
+          success: () => {
+            fetchData();
+            resetForm();
+            onClose();
+            return 'Viatura criado com sucesso!'
+          },
+          error: 'Ups, ocorreu um erro!',
+        });
+      } catch (err) {
+        toast.error('Ups, ocorreu um erro ao submeter a empresa!');
+      }
+
+
     },
   });
   return (
@@ -51,6 +70,10 @@ const CriarVendedor = ({ onClose = () => { }, fetchData }) => {
         </div>
         <h3 className="gradient-text text-center mb-2">Adicione Viatura</h3>
         <div className="modal-content">
+          <div className="mb-3">
+            <FileInput name="image" isImage placeholder="Escolha uma imagem" inputEvent={changeImage}
+              value={image?.name || ''} />
+          </div>
           <TextInput
             className="card mb-3 w-full"
             name="marca"

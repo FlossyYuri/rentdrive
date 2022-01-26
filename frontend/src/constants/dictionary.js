@@ -230,6 +230,10 @@ export const headersViaturas = [
   {
     key: "marca",
     label: "Marca",
+    component: (item) => <div className="flex items-center">
+      <img className="table-icon" src={item.imagem} alt={item.marca} />
+      {item.marca}
+    </div>
   },
   {
     key: "modelo",

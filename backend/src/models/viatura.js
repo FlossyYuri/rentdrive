@@ -8,6 +8,9 @@ const Viatura = sequelize.define("viatura", {
     primaryKey: true,
     type: Sequelize.INTEGER,
   },
+  imagem: {
+    type: Sequelize.STRING,
+  },
   marca: {
     allowNull: false,
     type: Sequelize.STRING,

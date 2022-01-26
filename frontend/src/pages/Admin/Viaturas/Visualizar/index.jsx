@@ -9,6 +9,10 @@ const VisualizarViatura = ({ onClose = () => { }, viatura }) => {
           <button onClick={onClose}><IoMdClose size={32} color="red" /></button>
         </div>
         <div className="details-card flex-col gap-2">
+
+          <div className="flex justify-center">
+            <img className="car-image" src={viatura?.imagem} alt="Logo" />
+          </div>
           <div className="flex flex-wrap items-center">
             <span className="extended-w-1">Marca:</span>
             <strong>{viatura?.marca}</strong>

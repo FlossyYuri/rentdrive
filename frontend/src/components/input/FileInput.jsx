@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import FileIcon from "../../assets/svgs/file";
-import FileSVG from "../../assets/svgs/image.svg";
+import UploadFile from "../../assets/images/upload.png";
 import "../style/fileinput.css";
 
 const FileInput = ({ name, label, placeholder, initial, inputEvent, value, isImage, ...rest }) => {
@@ -12,14 +11,10 @@ const FileInput = ({ name, label, placeholder, initial, inputEvent, value, isIma
   }
   const filename = initial?.substring(initial?.lastIndexOf('/') + 1);
   return (
-    <label className="file-input flex">
-      {isImage && <img className={file || initial ? '' : 'br-0'} src={file || initial || FileSVG} alt="Logo" />}
+    <label className="file-input flex-col items-center">
+      {isImage && <img src={file || initial || UploadFile} alt="Logo" />}
       <input name={name} type="file" onChange={changeDocument} placeholder="Digite a Resposta" {...rest} />
-      {!isImage && <FileIcon />}
-      <div className="flex-col justify-center">
-        <span>{placeholder}</span>
-        <span>{value || filename}</span>
-      </div>
+      <p className="mt-1">{!file ? 'Selecione a imagem' : filename}</p>
     </label>
   );
 };

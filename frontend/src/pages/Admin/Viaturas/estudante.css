@@ -81,3 +81,8 @@
 .data-filtro label {
   font-size: 18px;
 }
+
+.car-image {
+  max-height: 160px;
+  border-radius: 8px;
+}

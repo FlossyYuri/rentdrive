@@ -61,6 +61,7 @@ module.exports = {
         "id": 1,
         "matricula": "100-MZ",
         "marca": "Mazda",
+        "imagem": "https://static.carfromjapan.com/spec_57093cb8-e754-4e86-ab47-1b3d5cd3ab96_640_0",
         "modelo": "Demio",
         "ano": "2013",
         "precoDia": "2000",
@@ -74,6 +75,7 @@ module.exports = {
       {
         "id": 2,
         "matricula": "200-MZ",
+        "imagem": "https://image-cdn.beforward.jp/large/202011/2133927/BH601884_c96a8e.JPG",
         "marca": "Toyota",
         "modelo": "Passo",
         "ano": "2006",

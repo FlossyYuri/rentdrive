@@ -11,7 +11,7 @@
   justify-content: center;
 }
 .aside-login img {
-  max-height: 400px;
+  max-height: 500px;
   object-fit: cover;
 }
 .main-login {
@@ -50,11 +50,7 @@
   font-weight: 800;
 }
 .gradient-text {
-  background: linear-gradient(
-    90deg,
-    hsl(0, 98%, 49%) 0%,
-    hsl(23, 89%, 54%) 30%
-  );
+  background: linear-gradient(90deg, hsl(0, 98%, 49%) 0%, #f27121 30%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

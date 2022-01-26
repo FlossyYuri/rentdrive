@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import * as Yup from 'yup';
 import LogoIcon from "../../assets/svgs/rent2.svg";
-import Logomarca from "../../assets/svgs/logomarca.svg";
+import Logomarca from "../../assets/svgs/rental.svg";
 import Checkbox from "../../components/input/Checkbox";
 import TextInput from "../../components/input/TextInput";
 import { useAuth } from "../../context";
