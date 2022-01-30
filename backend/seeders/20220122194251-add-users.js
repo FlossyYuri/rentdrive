@@ -1,5 +1,3 @@
-'use strict';
-
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.bulkInsert('funcionarios', [
@@ -35,6 +33,38 @@ module.exports = {
         "updatedAt": new Date(),
         "createdAt": new Date()
       },
+      {
+        "id": 3,
+        "nome": "Jaime Jose",
+        "bi": "1231232233124",
+        "dataNascimento": new Date(),
+        "sexo": "feminino",
+        "telefone": "845230011",
+        "endereco": "Alto Mae",
+        "funcao": "admin",
+        "salario": 2000,
+        "nomeBanco": "Moza",
+        "numeroConta": "190981323",
+        "nib": "1242341347684",
+        "updatedAt": new Date(),
+        "createdAt": new Date()
+      },
+      {
+        "id": 4,
+        "nome": "Manuel Gimo",
+        "bi": "1231232233090",
+        "dataNascimento": new Date(),
+        "sexo": "feminino",
+        "telefone": "845230000",
+        "endereco": "Magoanine",
+        "funcao": "admin",
+        "salario": 3300,
+        "nomeBanco": "Moza",
+        "numeroConta": "190981300",
+        "nib": "1242341347600",
+        "updatedAt": new Date(),
+        "createdAt": new Date()
+      },
     ], {});
     await queryInterface.bulkInsert('usuarios', [
       {
@@ -57,6 +87,36 @@ module.exports = {
       },
     ], {});
     await queryInterface.bulkInsert('viaturas', [
+      {
+        "id": 5,
+        "matricula": "150-MZ",
+        "imagem": "https://file.kelleybluebookimages.com/kbb/base/house/2020/2020-BMW-i8-FrontSide_BMI8C2001_640x480.jpg",
+        "marca": "BMW",
+        "modelo": "I8",
+        "ano": "2020",
+        "precoDia": "8900",
+        "cambio": "hibrid",
+        "disponivel": true,
+        "validadeSeguro": new Date(),
+        "validadeInspencao": new Date(),
+        "updatedAt": new Date(),
+        "createdAt": new Date()
+      },
+      {
+        "id": 6,
+        "matricula": "99N-MZ",
+        "imagem": "http://1.bp.blogspot.com/-mOAMLazEKSE/TjEGQiwT3OI/AAAAAAAAAOo/Q5bhzsWUuxw/s1600/Img_16042.jpg",
+        "marca": "Nissan",
+        "modelo": "GT-R",
+        "ano": "2013",
+        "precoDia": "4800",
+        "cambio": "manual",
+        "disponivel": true,
+        "validadeSeguro": new Date(),
+        "validadeInspencao": new Date(),
+        "updatedAt": new Date(),
+        "createdAt": new Date()
+      },
       {
         "id": 1,
         "matricula": "100-MZ",
@@ -87,6 +147,36 @@ module.exports = {
         "updatedAt": new Date(),
         "createdAt": new Date()
       },
+      {
+        "id": 3,
+        "matricula": "400-MZ",
+        "imagem": "https://s3.amazonaws.com/dcmcarimages/car-images/Chevrolet/Corvette-Z06/532896/1G1YU2D65G5608314_1_3357.jpg",
+        "marca": "Chevrolet",
+        "modelo": "Corvette Z06",
+        "ano": "2016",
+        "precoDia": "9500",
+        "cambio": "hibrid",
+        "disponivel": true,
+        "validadeSeguro": new Date(),
+        "validadeInspencao": new Date(),
+        "updatedAt": new Date(),
+        "createdAt": new Date()
+      },
+      {
+        "id": 4,
+        "matricula": "A23-MZ",
+        "imagem": "https://pictures.topspeed.com/IMG/crop/201903/2020-tesla-model-y-v-5-2_800x0w.jpg",
+        "marca": "Tesla",
+        "modelo": "Model X",
+        "ano": "2020",
+        "precoDia": "11000",
+        "cambio": "auto",
+        "disponivel": true,
+        "validadeSeguro": new Date(),
+        "validadeInspencao": new Date(),
+        "updatedAt": new Date(),
+        "createdAt": new Date()
+      },
     ], {});
     await queryInterface.bulkInsert('clientes', [
       {
@@ -97,9 +187,9 @@ module.exports = {
         "email": "dalton@gmail.com",
         "telefone": "840128374",
         "endereco": "Malhangalene",
-        "tipo": "Empresa",
-        "updatedAt": "2022-01-22T20:27:05.878Z",
-        "createdAt": "2022-01-22T20:27:05.878Z"
+        "tipo": "empresa",
+        "updatedAt": new Date(),
+        "createdAt": new Date(),
       },
       {
         "id": 2,
@@ -109,9 +199,45 @@ module.exports = {
         "email": "benor@gmail.com",
         "telefone": "840128123",
         "endereco": "Mahotas",
-        "tipo": "Empresa",
-        "updatedAt": "2022-01-22T20:27:05.878Z",
-        "createdAt": "2022-01-22T20:27:05.878Z"
+        "tipo": "empresa",
+        "updatedAt": new Date(),
+        "createdAt": new Date(),
+      },
+      {
+        "id": 3,
+        "nome": "Edson Buque",
+        "bi": "1234145421000",
+        "nuit": "5130053",
+        "email": "edson@gmail.com",
+        "telefone": "840128029",
+        "endereco": "Zimpeto",
+        "tipo": "individual",
+        "updatedAt": new Date(),
+        "createdAt": new Date(),
+      },
+      {
+        "id": 4,
+        "nome": "Aylton Magaia",
+        "bi": "1234324421000",
+        "nuit": "5440053",
+        "email": "aylton@gmail.com",
+        "telefone": "840128029",
+        "endereco": "3 de Fevereiro",
+        "tipo": "individual",
+        "updatedAt": new Date(),
+        "createdAt": new Date(),
+      },
+      {
+        "id": 5,
+        "nome": "Elisa Tonela",
+        "bi": "1234145546000",
+        "nuit": "5133253",
+        "email": "lisa@gmail.com",
+        "telefone": "840128998",
+        "endereco": "Jardim",
+        "tipo": "individual",
+        "updatedAt": new Date(),
+        "createdAt": new Date(),
       },
     ], {});
     await queryInterface.bulkInsert('aluguers', [

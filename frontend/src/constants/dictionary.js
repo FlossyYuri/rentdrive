@@ -44,7 +44,6 @@ export const tipoTransacao = [
   { label: "Pagar Mensalidade", value: "pagamento" },
 ];
 
-export const tipoTransacaoObject = dropdownToValueObject(tipoTransacao)
 
 export const tiposEmpresa = [
   { label: "Clínica", value: "CLINICA" },
@@ -86,9 +85,11 @@ export const tiposCambio = [
 
 export const tiposCliente = [
   { label: 'Individual', value: "individual" },
-  { label: 'Empresa', value: "Empresa" },
+  { label: 'Empresa', value: "empresa" },
 ];
 
+export const tipoTransacaoObject = dropdownToValueObject(tipoTransacao)
+export const tipoCambioObject = dropdownToValueObject(tiposCambio)
 export const funcoesUsuarioObject = dropdownToValueObject(funcoesUsuario)
 export const tiposClienteObject = dropdownToValueObject(tiposCliente)
 
@@ -138,6 +139,7 @@ export const headersFuncionario = [
   {
     key: "dataNascimento",
     label: "D. Nascimento",
+    component: ({ dataNascimento }) => <span>{new Intl.DateTimeFormat('en-GB', { dateStyle: 'short' }).format(new Date(dataNascimento))}</span>
   },
   {
     key: "sexo",
@@ -250,6 +252,7 @@ export const headersViaturas = [
   {
     key: "cambio",
     label: "Cambio",
+    component: (item) => tipoCambioObject[item.cambio].label
   },
   {
     key: "precoDia",
