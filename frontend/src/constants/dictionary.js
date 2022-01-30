@@ -227,6 +227,16 @@ export const headersAluguer = [
       }
     </div>
   },
+  {
+    key: "devolucao",
+    label: "Estado",
+    component: (item) => <div className="flex items-center">
+      {item.dataDevolucao ?
+        <><div className="small-circle enabled" />Devolvido</> :
+        <><div className="small-circle disabled" />Correndo</>
+      }
+    </div>
+  },
 ];
 export const headersViaturas = [
   {

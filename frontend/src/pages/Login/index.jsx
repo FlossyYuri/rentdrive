@@ -77,7 +77,7 @@ const Login = () => {
             <p>
               Desenvolvido por
               <a href="https://connectplus.co.mz/">
-                <strong> CONNECT PLUS</strong>
+                <strong>Chelsia & Émerson</strong>
               </a>
             </p>
           </div>

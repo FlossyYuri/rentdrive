@@ -12,7 +12,6 @@ const Perfil = () => {
   const { usuario: localUser, logout, toast } = useAuth(useAuth);
   let { id } = useParams();
   const [fetchedUsuario, setUsuario] = useState(id ? null : localUser)
-
   const fetchData = () => {
     APIKit.get(`/usuarios/${id}`)
       .then(response => setUsuario(response.data))
@@ -44,19 +43,19 @@ const Perfil = () => {
           {fetchedUsuario?.ativo ? <div className="enabled-circle" /> : <div className="disabled-circle" />}
         </div>
         <div className="flex-col p-4 profile-main">
-          <h3 className="mb-1 blue-text">{fetchedUsuario?.nome} {id ? <span className="badge">{fetchedUsuario?.funcao ? funcoesUsuarioObject[fetchedUsuario?.funcao].label : ""}</span> : ''}</h3>
-          <span className="text-opaque">{fetchedUsuario?.email}</span>
-          <span className="text-opaque">{fetchedUsuario?.contacto}</span>
+          <h3 className="mb-1 blue-text">{fetchedUsuario?.nome} {id ? <span className="badge">{fetchedUsuario?.tipo ? funcoesUsuarioObject[fetchedUsuario?.tipo].label : ""}</span> : ''}</h3>
+          <span className="text-opaque">{fetchedUsuario?.funcionario?.email}</span>
+          <span className="text-opaque">{fetchedUsuario?.funcionario?.telefone}</span>
         </div>
         <div className="flex-col profile-footer p-4">
           <div className="flex">
             <div className="flex-col w-50">
-              <span className="blue-text font-bold ls-1">{fetchedUsuario?.empresas}</span>
-              <span className="text-opaque uppercase">Empresas</span>
+              <span className="blue-text font-bold ls-1">{fetchedUsuario?.tipo && funcoesUsuarioObject[fetchedUsuario?.tipo].label}</span>
+              <span className="text-opaque">Tipo de Usuário</span>
             </div>
             <div className="flex-col w-50">
-              <span className="blue-text font-bold ls-1">{formatMoney(fetchedUsuario?.receita)}</span>
-              <span className="text-opaque uppercase">Receita</span>
+              <span className="blue-text font-bold ls-1">{formatMoney(fetchedUsuario?.funcionario?.salario)}</span>
+              <span className="text-opaque">Salário</span>
             </div>
           </div>
           <div className="flex mt-2">

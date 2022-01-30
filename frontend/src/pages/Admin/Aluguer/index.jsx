@@ -40,7 +40,14 @@ const Aluguer = () => {
     setFilters({ ...query })
   }, [])
 
-  const menuItems = (item) => [
+  const menuItems = (item) => item?.dataDevolucao ? [
+    {
+      text: "Ver Detalhes",
+      onClick: () => {
+        setModalDetalhes({ visible: true, aluguer: item })
+      },
+    },
+  ] : [
     {
       text: "Ver Detalhes",
       onClick: () => {

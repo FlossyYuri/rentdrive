@@ -7,7 +7,6 @@ const AuthContext = React.createContext(undefined);
 export const AuthProvider = ({ children }) => {
   const [auth, setAuth] = useState(!!localStorage.getItem(USER_LOCAL_STORAGE));
   const [usuario, setUsuario] = useState(JSON.parse(localStorage.getItem(USER_LOCAL_STORAGE) || '{}'));
-
   const setUser = () => {
     APIKit.get('/auth/me')
       .then(({ data }) => {

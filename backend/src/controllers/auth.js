@@ -24,7 +24,7 @@ exports.Login = (req, res, next) => {
     .catch((error) => next(error));
 };
 exports.ME = async (req, res, next) => {
-  res.status(status.OK).send({});
+  res.status(status.OK).send(req.user);
 };
 exports.NovaSenha = async (req, res) => {
   const { token, password, passwordConfirmation } = req.body

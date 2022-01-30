@@ -1,6 +1,7 @@
 const jwt = require("jsonwebtoken");
 const status = require("http-status");
 const Usuario = require("../models/usuario");
+const Funcionario = require("../models/funcionario");
 
 exports.authenticateToken = (req, res, next) => {
   const authHeader = req.headers["authorization"];
@@ -11,7 +12,12 @@ exports.authenticateToken = (req, res, next) => {
       console.log(err);
     if (err) return res.status(status.UNAUTHORIZED).send({ inspiredToken: true })
     else {
-      Usuario.findByPk(user.id)
+      Usuario.findOne({
+        where: {
+          id: user.id
+        },
+        include: [Funcionario]
+      })
         .then((usuario) => {
           if (usuario) {
             req.user = usuario;
