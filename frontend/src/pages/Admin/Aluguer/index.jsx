@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import CustomTable from "../../../components/CustomTable";
 import TextInput from "../../../components/input/TextInput";
 import Pagination from "../../../components/Pagination";
 import { headersAluguer } from "../../../constants/dictionary";
 import { useAuth } from "../../../context";
 import { APIKit } from "../../../services/api";
-import VisualizarAluguer from "./Visualizar";
 import Devolucao from "./Devolucao";
 import "./estudante.css";
 import CriarVendedor from "./Modal/index";
+import VisualizarAluguer from "./Visualizar";
 const Aluguer = () => {
   const { toast } = useAuth(useAuth)
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -78,11 +78,11 @@ const Aluguer = () => {
         <h3 className="mb-1 mt-4 gradient-text">Filtros</h3>
         <div className="grid-col-4 gap-2">
           <TextInput
-            name="aluguer"
-            label="aluguer"
+            name="cliente"
+            label="Cliente"
             type="text"
-            placeholder="aluguer"
-            inputEvent={(data) => setFilter('aluguer', data)}
+            placeholder="Cliente"
+            inputEvent={(data) => setFilter('cliente', data)}
           />
           <TextInput
             name="viatura"
@@ -94,7 +94,7 @@ const Aluguer = () => {
           <TextInput
             name="data"
             label="Data"
-            type="text"
+            type="date"
             placeholder="Data"
             inputEvent={(data) => setFilter('data', data)}
           />

@@ -45,7 +45,6 @@ const CriarAlguer = ({ onClose = () => { }, fetchData }) => {
     let precoTotal = viatura?.precoDia;
     const diffTime = Math.abs(new Date(formik.values.dataPrevistaDevolucao) - new Date(formik.values.dataEntrega));
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    precoTotal = precoTotal
     if (formik.values.motorista) precoTotal += PRICES.MOTORISTA;
     if (formik.values.combustivel) precoTotal += PRICES.COMBUSTIVEL;
     formik.setFieldValue('valorTotal', precoTotal * diffDays)

@@ -24,7 +24,7 @@ const CriarVendedor = ({ onClose = () => { }, fetchData }) => {
       ano: '',
       precoDia: '',
       cambio: '',
-      disponivel: '',
+      disponivel: false
     },
     validationSchema: Yup.object({
       validadeSeguro: Yup.date().required('Required'),
@@ -35,7 +35,7 @@ const CriarVendedor = ({ onClose = () => { }, fetchData }) => {
       ano: Yup.number().required('Required'),
       cambio: Yup.string().required('Required'),
       precoDia: Yup.number().required('Required'),
-      disponivel: Yup.string().required('Required'),
+      disponivel: Yup.boolean().required('Required'),
     }),
     onSubmit: async (values, { resetForm }) => {
       try {
@@ -95,7 +95,7 @@ const CriarVendedor = ({ onClose = () => { }, fetchData }) => {
           <TextInput
             className="card mb-3 w-full"
             name="ano"
-            label="Ano"
+            label="Ano de Fabrico"
             placeholder="Ano"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}

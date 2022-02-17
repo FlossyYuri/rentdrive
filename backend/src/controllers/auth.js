@@ -2,7 +2,6 @@ const jwt = require("jsonwebtoken");
 const Usuario = require("../models/usuario");
 const status = require("http-status");
 const { compareHash, generateToken, verifyToken, genToken, updateRow } = require("../utils");
-const mailer = require("../config/mailer");
 
 exports.Login = (req, res, next) => {
   const { nome, senha } = req.body;
